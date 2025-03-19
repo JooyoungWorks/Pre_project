@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.by import By
-from tests.pages.products_list import ProductListPage
+from tests.pages.products_list_page import ProductListPage
 
 
 @pytest.mark.usefixtures("driver")
