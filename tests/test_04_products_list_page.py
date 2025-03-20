@@ -10,8 +10,7 @@ from tests.pages.products_list_page import ProductListPage
 
 @pytest.mark.usefixtures("driver")
 class TestProductsListPage:
-    
-    
+        
     def test_open_products_list_page(self, driver: WebDriver):
         try:
             products_list_page = ProductListPage(driver)
@@ -29,7 +28,6 @@ class TestProductsListPage:
             assert False, f"상품리스트 페이지 오픈 실패 : {e}"
 
 
-    @pytest.mark.skip(reason="테스트 성공해서 계속 할 필요 없음")
     def test_image_mouse_hover(self, driver: WebDriver):
         try:
             ICON_CONTAINER_SELECTOR = ".info_icon"
