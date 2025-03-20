@@ -30,6 +30,6 @@
 - dev 밑으로 ‘feature/이름’ branch 만들고, 개인 branch에서 수정하여 dev branch로 PR 날리기
   - 조장이 확인 후 dev에서 main으로 merge
 - 테스트 파일 이름 형식: test_번호_페이지이름_page.py
-  - 테스트 파일은 tests 폴더 안에 저장합니다
+  - 테스트 파일은 tests 폴더 안에 저장
 - 페이지(기능 구현) 파일 이름 형식: 페이지이름_page.py
-  - 페이지 파일은 tests 폴더 안의 pages 폴더 안에 저장합니다.
+  - 페이지 파일은 tests 폴더 안의 pages 폴더 안에 저장
