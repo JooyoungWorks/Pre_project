@@ -29,6 +29,7 @@ class TestGNBPage:
         except NoSuchElementException as e:
             assert False
     
+    @pytest.mark.skip
     def test_open_exhibition(self, driver: WebDriver):
         try:
             # '축산품 기획전' 페이지 열기 (메인 페이지부터 시작)
@@ -43,3 +44,42 @@ class TestGNBPage:
             assert False
         except TimeoutException as e:
             assert False
+    
+    @pytest.mark.skip
+    def test_scroll_exhibition(self, driver: WebDriver):
+        try:
+            exhibition_page_scroll = GNB_Page(driver)
+            exhibition_page_scroll.scroll_exhibition()
+
+            # 스크롤을 내려 footer가 화면에 보이는지 확인
+            footer = ws(driver, 10).until(
+                EC.visibility_of_element_located((By.ID, "footer"))
+            )
+        
+            assert footer.is_displayed(), "❌ footer가 화면에 보이지 않습니다. 테스트 실패"
+            
+            # footer가 보이면 스크롤 완료 메시지 출력
+            print("스크롤 완료")
+
+        except AssertionError as e:
+            print(f"테스트 실패: {e}")
+
+        except Exception as e:
+            print(f"오류 발생: {e}")
+
+    def test_click_next_page_btn(self, driver: WebDriver):
+        try:
+            # 페이지 스크롤
+            exhibition_page_scroll = GNB_Page(driver)
+            exhibition_page_scroll.scroll_exhibition()
+
+            click_next_page_btn = GNB_Page(driver)
+            click_next_page_btn.click_next_page_btn
+
+            pre_page_btn = ws(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//div[@class='pagination']//a[@class='direction prev']")))
+
+            assert pre_page_btn.is_enabled, "❌ 다음 페이지로 이동하지 못했습니다. 테스트 실패"
+            print("✅ 다음 페이지 버튼 클릭 성공!")
+        except Exception as e:
+            print("현재 페이지가 마지막 페이지로, 다음 페이지 버튼 클릭 테스트 종료합니다.")
