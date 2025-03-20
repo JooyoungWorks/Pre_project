@@ -181,4 +181,3 @@ time.sleep(3)
 driver.quit()
 print("✅ 브라우저 종료")
 print("✅ 테스트 종료")
-    
