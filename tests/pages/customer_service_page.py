@@ -9,13 +9,14 @@ class CustomerServicePage():
     URL = "https://mall.ejeju.net/board/list.do?board=notice"
     MESSAGE_BOARD_CLASSNAME = "//tr[@class='bg'][1]/td[@class='title']/strong/a"
 
-   
+
     def __init__(self, driver: WebDriver):
         self.driver = driver
 
     
     def open(self):
         self.driver.get(self.URL)
+
 
     def message_board(self):
         first_post = self.driver.find_element(By.XPATH, self.MESSAGE_BOARD_CLASSNAME)

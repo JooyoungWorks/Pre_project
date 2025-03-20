@@ -34,7 +34,6 @@ class TestCustomerServicePage:
 
             wait = ws(driver, 10)
             wait.until(EC.url_contains("board"))
-            assert "board" in driver.current_url
 
             time.sleep(2)
 
@@ -42,13 +41,14 @@ class TestCustomerServicePage:
 
             wait = ws(driver, 10)
             wait.until(EC.url_contains("boardContent"))
+
             assert "boardContent" in driver.current_url
-            driver.save_screenshot("고객센터페이지-첫번째 게시물-성공.png")
+            driver.save_screenshot("고객센터페이지-첫번째 게시물 열기-성공.png")
 
         except NoSuchElementException as e:
-            driver.save_screenshot("고객센터페이지-첫번째 게시물-실패-노서치.png")
+            driver.save_screenshot("고객센터페이지-첫번째 게시물 열기-실패-노서치.png")
             assert False
 
         except TimeoutException as e:
-            driver.save_screenshot("고객센터페이지-첫번째 게시물-실패-타임에러.png")
+            driver.save_screenshot("고객센터페이지-첫번째 게시물 열기-실패-타임에러.png")
             assert False
